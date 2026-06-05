@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deutsch A1 – Kapitel 1 Teil 2: Zahlen, Familie & Satzbau</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:   #f5f0e8;
+  --paper:   #ede8dc;
+  --ink:     #1a1208;
+  --rust:    #c0392b;
+  --gold:    #b8860b;
+  --teal:    #1a6b5a;
+  --blue:    #1a3a6b;
+  --muted:   #7a6f5e;
+  --border:  #c8bfaa;
+  --shadow:  rgba(26,18,8,0.15);
+  --radius:  4px;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body {
+  font-family: 'Crimson Pro', serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8bfaa' fill-opacity='0.18'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ─── NEWSPAPER HEADER ─── */
+.newspaper-header {
+  border-bottom: 4px double var(--ink);
+  text-align: center;
+  padding: 24px 20px 16px;
+  position: relative;
+}
+.newspaper-header::before {
+  content: '— DEUTSCHKURS GAZETTE —';
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.newspaper-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.newspaper-header h1 span { color: var(--rust); }
+.newspaper-header .subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+.edition-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ─── SCORE ROW ─── */
+.hud {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.hud-pill {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 5px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hud-pill strong { color: var(--rust); font-size: 1rem; }
+.hud-pill.teal strong { color: var(--teal); }
+.hud-pill.gold strong { color: var(--gold); }
+
+/* ─── PROGRESS ─── */
+.progress-wrap {
+  max-width: 700px;
+  margin: 12px auto 0;
+  padding: 0 20px;
+}
+.progress-track {
+  height: 6px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg, var(--rust) 0px, var(--rust) 12px, var(--gold) 12px, var(--gold) 14px
+  );
+  transition: width 0.5s ease;
+}
+.progress-label {
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+/* ─── ROUND NAV ─── */
+.round-nav {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  border-bottom: 2px solid var(--ink);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.rnav-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-right: none;
+  padding: 7px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.5px;
+}
+.rnav-btn:last-child { border-right: 1px solid var(--border); }
+.rnav-btn:hover { background: var(--paper); color: var(--ink); }
+.rnav-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.rnav-btn.done { background: var(--teal); color: white; border-color: var(--teal); }
+
+/* ─── GAME AREA ─── */
+#game-area {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* ─── SECTION INTRO ─── */
+.s-intro {
+  border: 2px solid var(--ink);
+  padding: 22px 24px;
+  margin-bottom: 22px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.s-intro::after {
+  content: '';
+  position: absolute;
+  top: 4px; left: 4px; right: 4px; bottom: 4px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
+.s-intro .stamp {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 6px;
+}
+.s-intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  margin-bottom: 6px;
+}
+.s-intro p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─── GRAMMAR RULE CARD ─── */
+.rule-card {
+  border-left: 4px solid var(--gold);
+  background: var(--paper);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.rule-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.rule-card table { border-collapse: collapse; width: 100%; margin-top: 8px; font-size: 0.9rem; }
+.rule-card th { color: var(--rust); font-weight: 600; border-bottom: 1px solid var(--border); padding: 4px 10px; text-align: left; }
+.rule-card td { padding: 4px 10px; color: var(--ink); }
+.rule-card td:first-child { color: var(--muted); font-style: italic; }
+.tag { display: inline-block; background: var(--rust); color: white; padding: 1px 8px; font-family: 'DM Mono', monospace; font-size: 0.72rem; margin: 2px; }
+.tag.teal { background: var(--teal); }
+.tag.blue { background: var(--blue); }
+
+/* ─── QUESTION CARD ─── */
+.q-card {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 24px 22px;
+  margin-bottom: 18px;
+  box-shadow: 3px 3px 0 var(--border);
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.q-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.q-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.q-hint {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+/* ─── CHOICES ─── */
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media(max-width:500px){ .choices{ grid-template-columns:1fr; } }
+.choice-btn {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  position: relative;
+}
+.choice-btn:hover:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--cream);
+  transform: translate(-2px,-2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.choice-btn.correct { border-color: var(--teal)!important; background: rgba(26,107,90,0.08)!important; color: var(--teal); font-weight: 600; }
+.choice-btn.wrong   { border-color: var(--rust)!important;  background: rgba(192,57,43,0.07)!important;  color: var(--rust); }
+.choice-btn:disabled { cursor: default; }
+
+/* ─── FILL INPUT ─── */
+.fill-wrap { display: flex; gap: 10px; margin-top: 6px; }
+.fill-wrap input {
+  flex: 1;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--ink);
+  padding: 10px 14px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  outline: none;
+  border-radius: 0;
+  transition: border 0.15s;
+}
+.fill-wrap input:focus { border-color: var(--blue); border-bottom-color: var(--blue); }
+.fill-wrap input.ok  { border-bottom-color: var(--teal); background: rgba(26,107,90,0.05); }
+.fill-wrap input.bad { border-bottom-color: var(--rust); background: rgba(192,57,43,0.05); }
+.check-btn {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 10px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: opacity 0.15s;
+}
+.check-btn:hover { opacity: 0.85; }
+.check-btn:disabled { opacity: 0.4; cursor: default; }
+
+/* ─── FEEDBACK ─── */
+.feedback {
+  margin-top: 12px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+  display: none;
+  animation: pop 0.2s ease;
+}
+@keyframes pop { from{transform:scale(0.95);opacity:0} to{transform:scale(1);opacity:1} }
+.feedback.show  { display: block; }
+.feedback.ok    { border-color: var(--teal); background: rgba(26,107,90,0.06); color: var(--teal); }
+.feedback.bad   { border-color: var(--rust);  background: rgba(192,57,43,0.06);  color: var(--rust); }
+.answer-reveal  { font-weight: 700; }
+
+/* ─── NEXT BUTTON ─── */
+.next-btn {
+  display: none;
+  width: 100%;
+  margin-top: 14px;
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 13px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.15s;
+}
+.next-btn:hover { background: var(--rust); }
+.next-btn.show  { display: block; }
+
+/* ─── NUMBER QUIZ (special) ─── */
+.num-display {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--rust);
+  text-align: center;
+  padding: 20px 0 10px;
+  letter-spacing: -2px;
+}
+.num-display.de {
+  font-size: 2rem;
+  color: var(--teal);
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+/* ─── MATCHING ─── */
+.match-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.match-item {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 11px 14px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.15s;
+  text-align: center;
+  font-family: 'Crimson Pro', serif;
+}
+.match-item:hover:not(.matched):not(.disabled) {
+  border-color: var(--ink);
+  transform: translate(-1px,-1px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.match-item.selected { border-color: var(--gold); background: rgba(184,134,11,0.08); color: var(--gold); font-weight: 700; }
+.match-item.matched  { border-color: var(--teal); background: rgba(26,107,90,0.1); color: var(--teal); cursor: default; }
+.match-item.bad-flash{ border-color: var(--rust); animation: shake 0.3s ease; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-7px)} 75%{transform:translateX(7px)} }
+
+/* ─── FAMILY TREE ─── */
+.family-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 16px 0;
+}
+.family-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.fam-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  text-align: center;
+  min-width: 110px;
+  position: relative;
+}
+.fam-card .name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; }
+.fam-card .role { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+.fam-connector { color: var(--border); font-size: 0.8rem; font-family: 'DM Mono', monospace; text-align: center; }
+
+/* ─── SENTENCE BUILDER ─── */
+.word-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+  min-height: 48px;
+  border: 1px dashed var(--border);
+  padding: 10px;
+  background: var(--paper);
+}
+.token {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 12px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s;
+}
+.token:hover { transform: translateY(-2px); background: var(--rust); }
+.token.used { background: var(--teal); }
+.token.locked { cursor: default; }
+.sentence-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 48px;
+  border-bottom: 2px solid var(--ink);
+  padding: 10px 0;
+  align-items: center;
+}
+.slot {
+  border-bottom: 2px solid var(--border);
+  min-width: 70px;
+  padding: 4px 10px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  display: inline-block;
+  cursor: pointer;
+  transition: border 0.15s;
+  text-align: center;
+}
+.slot:empty::after { content: '___'; color: var(--border); }
+.slot:hover { border-bottom-color: var(--rust); }
+.slot.filled { border-bottom-color: var(--teal); color: var(--teal); font-weight: 700; }
+
+/* ─── XP POPUP ─── */
+.xp-popup {
+  position: fixed;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--teal);
+  pointer-events: none;
+  z-index: 999;
+  animation: xpFly 1s ease forwards;
+}
+@keyframes xpFly { 0%{opacity:1;transform:translateY(0)} 100%{opacity:0;transform:translateY(-80px)} }
+
+/* ─── CONGRATS ─── */
+.congrats {
+  display: none;
+  text-align: center;
+  padding: 50px 20px;
+  animation: slideUp 0.4s ease;
+}
+.congrats.show { display: block; }
+.congrats .medal { font-size: 5rem; animation: spin 2s ease infinite alternate; display: inline-block; }
+@keyframes spin { from{transform:rotate(-10deg)} to{transform:rotate(10deg)} }
+.congrats h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 16px 0 8px; }
+.congrats p { color: var(--muted); font-size: 1.1rem; margin-bottom: 20px; }
+.final-score {
+  display: inline-block;
+  border: 3px double var(--ink);
+  padding: 20px 50px;
+  margin: 10px 0 28px;
+}
+.final-score .big { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: var(--rust); }
+.final-score small { display: block; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 2px; color: var(--muted); }
+.restart-btn {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 14px 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.15s;
+}
+.restart-btn:hover { background: var(--rust); }
+
+@media(max-width:500px) {
+  .match-cols { grid-template-columns: 1fr; }
+  .num-display { font-size: 2.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="newspaper-header">
+  <h1>Kapitel 1 · Teil <span>2</span></h1>
+  <div class="subtitle">ZAHLEN · FAMILIE · SATZBAU · HOBBYS</div>
+  <div class="edition-bar">
+    <span>BEGEGNUNGEN A1+ · DEUTSCH LERNEN</span>
+    <span>SEITEN 14–20</span>
+    <span>AUSGABE II</span>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="hud-pill">⭐ <strong id="hud-score">0</strong> pts</div>
+  <div class="hud-pill teal">✔ streak <strong id="hud-streak">0</strong>x</div>
+  <div class="hud-pill gold">❤️ lives <strong id="hud-lives">3</strong></div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+  <div class="progress-label" id="prog-label">ROUND 1 OF 6</div>
+</div>
+
+<div class="round-nav" id="round-nav"></div>
+<div id="game-area"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// ROUNDS DEFINITION
+// ═══════════════════════════════════════════════════════
+const ROUNDS = [
+  { id:'possessiv',  label:'§ Possessiv',  icon:'👤' },
+  { id:'zahlen',     label:'§ Zahlen',     icon:'🔢' },
+  { id:'satzbau',    label:'§ Satzbau',    icon:'📐' },
+  { id:'familie',    label:'§ Familie',    icon:'👨‍👩‍👧‍👦' },
+  { id:'hobbys',     label:'§ Hobbys',     icon:'🎭' },
+  { id:'verben2',    label:'§ Verben II',  icon:'📝' },
+];
+
+// ═══════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════
+
+// Round 1 – Possessivartikel
+const POSS_MCQ = [
+  { q:'What is the possessive article for "ich"?', hint:'My mother → ___ Mutter', options:['seine','deine','meine','ihre'], correct:2, explain:'"meine" = my (ich → meine)' },
+  { q:'Hans spricht über seine Sprache. What does "seine" mean here?', hint:'er → ___', options:['her','your','its','his'], correct:3, explain:'"er → seine" = his. Like "his language".' },
+  { q:'Complete: "Was ist ___ Muttersprache?" (asking du)', hint:'Informal "you"', options:['meine','seine','ihre','deine'], correct:3, explain:'"du → deine" = your (informal)' },
+  { q:'Marta spricht über ___ Hobbys. (she)', hint:'sie → ___', options:['seine','ihre','meine','deine'], correct:1, explain:'"sie → ihre" = her' },
+  { q:'Complete: "___ Nachbar heißt Pedro." (my)', hint:'ich → ___', options:['Ihre','Deine','Seine','Mein'], correct:3, explain:'"mein" — note: Nachbar is masculine, so "mein" (not meine)' },
+];
+
+// Round 2 – Zahlen MCQ + fill
+const ZAHLEN_MCQ = [
+  { q:'How do you say 16 in German?', hint:'⚠️ Irregular — not "sechzehn"!', options:['sechzehn','sechzezehn','siebzehn','sechzehn'], correct:0, explain:'"sechzehn" — the "s" is dropped from "sechs". Also 17 = "siebzehn" (not "siebenzehn").' },
+  { q:'What is 60 in German?', hint:'⚠️ Also irregular!', options:['sechzig','sechszig','sechzig','sechs­zig'], correct:0, explain:'"sechzig" — the "s" drops again. Also 70 = "siebzig" (not "siebenzig").' },
+  { q:'How do you say 21?', hint:'German puts units BEFORE tens with -und-', options:['zwanzigein','einzwanzig','einundzwanzig','zwanzigeins'], correct:2, explain:'"einundzwanzig" = one-and-twenty. Pattern: [unit]und[ten].' },
+  { q:'"dreißig" is which number?', hint:'Not "dreizig"!', options:['13','30','33','3'], correct:1, explain:'30 = "dreißig" — irregular spelling with ß, not zig.' },
+  { q:'How do you say 1000?', hint:'📞', options:['eintausen','eintausend','tausend eins','ein tausend'], correct:1, explain:'"eintausend" = one thousand. 10,000 = "zehntausend".' },
+];
+
+const ZAHLEN_FILL = [
+  { prompt:'7 + 3 =', answer:'zehn', hint:'sieben plus drei' },
+  { prompt:'15 – 8 =', answer:'sieben', hint:'fünfzehn minus acht' },
+  { prompt:'12 + 12 =', answer:'vierundzwanzig', hint:'zwölf plus zwölf' },
+  { prompt:'30 – 18 =', answer:'zwölf', hint:'dreißig minus achtzehn' },
+  { prompt:'9 – 5 =', answer:'vier', hint:'neun minus fünf' },
+];
+
+// Round 3 – Satzbau MCQ
+const SATZBAU_MCQ = [
+  { q:'In a German statement (Aussagesatz), the verb is always on position…', hint:'Mein Name IST Conrad. Ich KOMME aus Berlin.', options:['1','2','3','any'], correct:1, explain:'The verb is always in POSITION 2 in German statements. This is a core rule!' },
+  { q:'In a Yes/No question (Ja-Nein-Frage), the verb is on position…', hint:'"___ Sie Englisch?" — verb comes first!', options:['1','2','3','last'], correct:0, explain:'Yes/No questions start with the verb: "Sprechen Sie…?" "Studieren Sie…?"' },
+  { q:'Which word order is correct?', hint:'Verb must be position 2', options:['Ich aus Berlin komme.','Ich komme aus Berlin.','Aus Berlin komme ich nicht.','Komme ich aus Berlin.'], correct:1, explain:'"Ich komme aus Berlin." — verb "komme" is in position 2.' },
+  { q:'Which is a correct W-question?', hint:'Woher, Wie, Was, Wo…', options:['Sie woher kommen?','Woher kommen Sie?','Woher Sie kommen?','Kommen woher Sie?'], correct:1, explain:'"Woher kommen Sie?" — W-word first, then verb position 2, then subject.' },
+  { q:'How do you say "What do you do for work?" (formal)', hint:'Was + sein + von Beruf', options:['Was sind Sie von Beruf?','Was bist du Beruf?','Sie was machen Beruf?','Beruf was sind Sie?'], correct:0, explain:'"Was sind Sie von Beruf?" — formal. Informal: "Was bist du von Beruf?"' },
+];
+
+// Round 4 – Familie MCQ
+const FAMS = [
+  { de:'der Vater',    en:'the father' },
+  { de:'die Mutter',  en:'the mother' },
+  { de:'der Sohn',    en:'the son' },
+  { de:'die Tochter', en:'the daughter' },
+  { de:'der Bruder',  en:'the brother' },
+  { de:'die Schwester',en:'the sister' },
+  { de:'der Mann',    en:'the husband' },
+  { de:'die Frau',    en:'the wife' },
+];
+const FAM_MCQ = [
+  { q:'Hans ist verheiratet mit Susanne. Was ist Susanne für Hans?', hint:'💍', options:['die Mutter','die Schwester','die Frau','die Tochter'], correct:2, explain:'"die Frau" = the wife. "der Mann" = the husband.' },
+  { q:'Marta ist die Schwester von Hans. Was ist Hans für Marta?', hint:'👦', options:['der Vater','der Bruder','der Sohn','der Mann'], correct:1, explain:'"der Bruder" = the brother. Schwester/Bruder = Geschwister (siblings).' },
+  { q:'Maximilian ist der Sohn von Hans und Susanne. Was ist Marie für Maximilian?', hint:'👧 They are siblings.', options:['die Mutter','die Frau','die Schwester','die Tochter'], correct:2, explain:'"die Schwester" = the sister. Marie ist die Schwester von Maximilian.' },
+  { q:'What is "ledig" in English?', hint:'Martin ist ledig.', options:['married','divorced','single','widowed'], correct:2, explain:'"ledig" = single. "verheiratet" = married. "geschieden" = divorced.' },
+  { q:'Hans und Susanne haben zwei Kinder. What is the German word for "children"?', hint:'plural of Kind', options:['Kinder','Kinden','Kindern','Kindes'], correct:0, explain:'"Kinder" = children (plural of "das Kind"). Hans hat zwei Kinder.' },
+];
+
+// Round 5 – Hobbys MCQ
+const HOBBY_MCQ = [
+  { q:'Susanne liest gern Kriminalromane. What does she enjoy?', hint:'📚 lesen = to read', options:['watching crime films','reading crime novels','writing online texts','playing guitar'], correct:1, explain:'"liest gern" = likes to read. "Kriminalromane" = crime/detective novels.' },
+  { q:'What does "gern" mean in "Ich spiele gern Tennis"?', hint:'Ich spiele gern / nicht gern', options:['I play tennis badly','I play tennis often','I like playing tennis','I play tennis only'], correct:2, explain:'"gern" (= gerne) means "gladly / like to". "Ich spiele gern" = I like to play.' },
+  { q:'Marta spielt sehr gut Gitarre. What does this mean?', hint:'sehr gut = ?', options:['Marta teaches guitar','Marta plays guitar very well','Marta bought a guitar','Marta hates guitar'], correct:1, explain:'"sehr gut" = very well. She plays guitar very well.' },
+  { q:'Which verb means "to sing"?', hint:'Marie singt im Chor.', options:['spielen','lesen','singen','lernen'], correct:2, explain:'"singen" = to sing. "Marie singt im Chor" = Marie sings in the choir.' },
+  { q:'Hans lernt Sprachen. What is his hobby?', hint:'lernen = to learn', options:['Playing sports','Learning languages','Writing novels','Singing songs'], correct:1, explain:'"Sprachen lernen" = learning languages is Hans\'s hobby besides tennis.' },
+];
+
+// Round 6 – Verb conjugation: singen, spielen, lesen
+const VERB2_FILL = [
+  { sentence:'Marie ___ im Chor. (singen)', answer:'singt', pronoun:'sie (sing.)' },
+  { sentence:'Wir ___ gern Fußball. (spielen)', answer:'spielen', pronoun:'wir' },
+  { sentence:'Du ___ gern Kriminalromane. (lesen)', answer:'liest', pronoun:'du ⚠️ irregular' },
+  { sentence:'Er ___ sehr gut Gitarre. (spielen)', answer:'spielt', pronoun:'er' },
+  { sentence:'Ich ___ Online-Texte. (schreiben)', answer:'schreibe', pronoun:'ich' },
+  { sentence:'Ihr ___ Basketball. (spielen)', answer:'spielt', pronoun:'ihr' },
+  { sentence:'Sie ___ gern Musik. (hören)', answer:'hört', pronoun:'sie (sing.)' },
+  { sentence:'Er ___ sehr gut Englisch. (sprechen)', answer:'spricht', pronoun:'er ⚠️ irregular' },
+];
+
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+let S = { round:0, score:0, lives:3, streak:0, done:[] };
+
+function shuffle(a){ let b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]; } return b; }
+
+function updateHUD(){
+  document.getElementById('hud-score').textContent = S.score;
+  document.getElementById('hud-streak').textContent = S.streak;
+  document.getElementById('hud-lives').textContent = S.lives;
+  const pct = (S.round/ROUNDS.length)*100;
+  document.getElementById('prog-fill').style.width = pct+'%';
+  document.getElementById('prog-label').textContent = `ROUND ${S.round+1} OF ${ROUNDS.length}`;
+  renderNav();
+}
+
+function renderNav(){
+  const nav = document.getElementById('round-nav');
+  nav.innerHTML='';
+  ROUNDS.forEach((r,i)=>{
+    const btn=document.createElement('button');
+    btn.className='rnav-btn'+(i===S.round?' active':'')+(S.done.includes(i)?' done':'');
+    btn.textContent=r.icon+' '+r.label;
+    btn.onclick=()=>{ S.round=i; S.streak=0; renderRound(); };
+    nav.appendChild(btn);
+  });
+}
+
+function spawnXP(pts,e){
+  const el=document.createElement('div');
+  el.className='xp-popup';
+  el.textContent='+'+pts;
+  el.style.left=(e?e.clientX:window.innerWidth/2)+'px';
+  el.style.top=(e?e.clientY:200)+'px';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1050);
+}
+
+function award(pts,e){ S.score+=pts; S.streak++; updateHUD(); if(e)spawnXP(pts,e); }
+function penalize(){ S.lives=Math.max(0,S.lives-1); S.streak=0; updateHUD(); }
+
+// ═══════════════════════════════════════════════════════
+// RENDER ROUND
+// ═══════════════════════════════════════════════════════
+const GA = ()=>document.getElementById('game-area');
+
+function renderRound(){
+  GA().innerHTML='';
+  updateHUD();
+  const r=ROUNDS[S.round];
+  if(r.id==='possessiv') renderPossessiv();
+  else if(r.id==='zahlen') renderZahlen();
+  else if(r.id==='satzbau') renderSatzbau();
+  else if(r.id==='familie') renderFamilie();
+  else if(r.id==='hobbys') renderHobbys();
+  else if(r.id==='verben2') renderVerben2();
+}
+
+function nextRound(){
+  if(!S.done.includes(S.round)) S.done.push(S.round);
+  if(S.round<ROUNDS.length-1){ S.round++; renderRound(); }
+  else showCongrats();
+}
+
+// ─── INTRO HELPER ───
+function makeIntro(stamp,title,desc){
+  const d=document.createElement('div'); d.className='s-intro';
+  d.innerHTML=`<div class="stamp">${stamp}</div><h2>${title}</h2><p>${desc}</p>`;
+  return d;
+}
+
+// ─── RULE CARD HELPER ───
+function makeRule(html){
+  const d=document.createElement('div'); d.className='rule-card'; d.innerHTML=html; return d;
+}
+
+// ═══════════════════════════════════════════════════════
+// MCQ ENGINE
+// ═══════════════════════════════════════════════════════
+function mcqSequence(questions, idx, onDone){
+  if(idx>=questions.length){ onDone(); return; }
+  singleMCQ(questions[idx], ()=>mcqSequence(questions,idx+1,onDone));
+}
+
+function singleMCQ(q, onNext){
+  const card=document.createElement('div'); card.className='q-card';
+  card.innerHTML=`
+    <div class="q-type">✦ Multiple Choice</div>
+    <div class="q-text">${q.q}</div>
+    <div class="q-hint">${q.hint}</div>
+    <div class="choices" id="ch"></div>
+    <div class="feedback" id="fb"></div>
+    <button class="next-btn" id="nb">Weiter →</button>`;
+  GA().appendChild(card);
+  const ch=card.querySelector('#ch'), fb=card.querySelector('#fb'), nb=card.querySelector('#nb');
+  let done=false;
+  shuffle(q.options.map((o,i)=>({o,i}))).forEach(({o,i})=>{
+    const btn=document.createElement('button'); btn.className='choice-btn'; btn.textContent=o;
+    btn.onclick=(e)=>{
+      if(done)return; done=true;
+      ch.querySelectorAll('.choice-btn').forEach(b=>b.disabled=true);
+      if(i===q.correct){
+        btn.classList.add('correct');
+        fb.className='feedback show ok'; fb.innerHTML=`✓ Richtig! ${q.explain}`;
+        award(10+S.streak*2,e);
+      } else {
+        btn.classList.add('wrong');
+        ch.querySelectorAll('.choice-btn').forEach(b=>{ if(b.textContent===q.options[q.correct]) b.classList.add('correct'); });
+        fb.className='feedback show bad'; fb.innerHTML=`✗ Falsch. Correct: <span class="answer-reveal">${q.options[q.correct]}</span> — ${q.explain}`;
+        penalize();
+      }
+      nb.classList.add('show');
+    };
+    ch.appendChild(btn);
+  });
+  nb.onclick=()=>{ card.remove(); onNext(); };
+}
+
+// ═══════════════════════════════════════════════════════
+// FILL ENGINE
+// ═══════════════════════════════════════════════════════
+function fillSequence(items, idx, onDone){
+  if(idx>=items.length){ onDone(); return; }
+  singleFill(items[idx], ()=>fillSequence(items,idx+1,onDone));
+}
+
+function singleFill(item, onNext){
+  const card=document.createElement('div'); card.className='q-card';
+  const hint = item.pronoun
+    ? `<b>Verb:</b> ${item.sentence.match(/\((.+)\)/)?.[1]||''} &nbsp; <b>Pronoun:</b> ${item.pronoun}`
+    : `💡 ${item.hint||''}`;
+  card.innerHTML=`
+    <div class="q-type">✦ Fill in the Blank</div>
+    <div class="q-text">${item.sentence||item.prompt}</div>
+    <div class="q-hint">${hint}</div>
+    <div class="fill-wrap">
+      <input type="text" id="fi" placeholder="Type here…" autocomplete="off" autocorrect="off" spellcheck="false">
+      <button class="check-btn" id="cb">CHECK</button>
+    </div>
+    <div class="feedback" id="fb"></div>
+    <button class="next-btn" id="nb">Weiter →</button>`;
+  GA().appendChild(card);
+  const fi=card.querySelector('#fi'), cb=card.querySelector('#cb'), fb=card.querySelector('#fb'), nb=card.querySelector('#nb');
+  fi.focus();
+  function check(e){
+    const val=fi.value.trim().toLowerCase();
+    const ans=(item.answer||item.ans).toLowerCase();
+    fi.disabled=true; cb.disabled=true;
+    if(val===ans){
+      fi.classList.add('ok'); fb.className='feedback show ok';
+      fb.innerHTML=`✓ Richtig! The answer is <span class="answer-reveal">${item.answer||item.ans}</span>`;
+      award(15+S.streak*2,e||null);
+    } else {
+      fi.classList.add('bad'); fb.className='feedback show bad';
+      fb.innerHTML=`✗ Falsch. Correct form: <span class="answer-reveal">${item.answer||item.ans}</span>`;
+      penalize();
+    }
+    nb.classList.add('show');
+  }
+  cb.onclick=check;
+  fi.onkeydown=(e)=>{ if(e.key==='Enter')check(e); };
+  nb.onclick=()=>{ card.remove(); onNext(); };
+}
+
+// ═══════════════════════════════════════════════════════
+// MATCHING ENGINE
+// ═══════════════════════════════════════════════════════
+function matchingGame(pairs, onDone){
+  const card=document.createElement('div'); card.className='q-card';
+  const lbl=document.createElement('div'); lbl.className='q-type'; lbl.textContent='✦ Matching — click one from each column';
+  card.appendChild(lbl);
+  const cols=document.createElement('div'); cols.className='match-cols'; card.appendChild(cols);
+  const fb=document.createElement('div'); fb.className='feedback'; card.appendChild(fb);
+  GA().appendChild(card);
+
+  const sdDE=shuffle(pairs.map(p=>p.de));
+  const sdEN=shuffle(pairs.map(p=>p.en));
+  let sel=null, matched=0;
+
+  const deEls=sdDE.map(de=>{ const el=document.createElement('div'); el.className='match-item'; el.textContent='🇩🇪 '+de; el.dataset.val=de; el.dataset.side='de'; cols.appendChild(el); return el; });
+  const enEls=sdEN.map(en=>{ const el=document.createElement('div'); el.className='match-item'; el.textContent='🇬🇧 '+en; el.dataset.val=en; el.dataset.side='en'; cols.appendChild(el); return el; });
+
+  [...deEls,...enEls].forEach(el=>{
+    el.onclick=()=>{
+      if(el.classList.contains('matched')||el.classList.contains('disabled'))return;
+      if(!sel){ sel=el; el.classList.add('selected'); }
+      else if(sel===el){ el.classList.remove('selected'); sel=null; }
+      else {
+        const a=sel, b=el;
+        const deSide=a.dataset.side==='de'?a:b;
+        const enSide=a.dataset.side==='en'?a:b;
+        const pair=pairs.find(p=>p.de===deSide.dataset.val);
+        if(pair&&pair.en===enSide.dataset.val){
+          a.classList.remove('selected'); a.classList.add('matched'); b.classList.add('matched');
+          S.score+=5; matched++; updateHUD(); sel=null;
+          if(matched===pairs.length){ fb.className='feedback show ok'; fb.textContent='✓ All matched!'; setTimeout(onDone,1000); }
+        } else {
+          a.classList.remove('selected'); a.classList.add('bad-flash'); b.classList.add('bad-flash');
+          penalize(); sel=null;
+          setTimeout(()=>{ a.classList.remove('bad-flash'); b.classList.remove('bad-flash'); },500);
+        }
+      }
+    };
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// ROUND 1: POSSESSIVARTIKEL
+// ═══════════════════════════════════════════════════════
+function renderPossessiv(){
+  GA().appendChild(makeIntro('§ GRAMMATIK','Possessivartikel','Learn the possessive articles: meine, deine, seine, ihre, Ihre.'));
+  GA().appendChild(makeRule(`
+    <h4>📌 Possessive Articles</h4>
+    <table>
+      <tr><th>Pronoun</th><th>Possessive</th><th>Example</th></tr>
+      <tr><td>ich</td><td><b>mein</b>e Muttersprache</td><td>My mother tongue</td></tr>
+      <tr><td>du</td><td><b>dein</b>e Muttersprache</td><td>Your m.t. (informal)</td></tr>
+      <tr><td>er</td><td><b>sein</b>e Muttersprache</td><td>His mother tongue</td></tr>
+      <tr><td>sie</td><td><b>ihr</b>e Muttersprache</td><td>Her mother tongue</td></tr>
+      <tr><td>Sie</td><td><b>Ihr</b>e Muttersprache</td><td>Your m.t. (formal)</td></tr>
+    </table>
+    <br>⚠️ Note: "Ihr" (formal) is always capitalized!`));
+  mcqSequence(shuffle(POSS_MCQ), 0, ()=>nextRound());
+}
+
+// ═══════════════════════════════════════════════════════
+// ROUND 2: ZAHLEN
+// ═══════════════════════════════════════════════════════
+function renderZahlen(){
+  GA().appendChild(makeIntro('§ ZAHLEN','Die Zahlen — Numbers','Learn German numbers 0–10,000 and do some maths!'));
+  GA().appendChild(makeRule(`
+    <h4>📌 Key Number Patterns</h4>
+    <b>0–12:</b> Unique words to memorise<br>
+    <span class="tag">null</span><span class="tag">eins</span><span class="tag">zwei</span><span class="tag">drei</span><span class="tag">vier</span><span class="tag">fünf</span><span class="tag">sechs</span><span class="tag">sieben</span><span class="tag">acht</span><span class="tag">neun</span><span class="tag">zehn</span><span class="tag">elf</span><span class="tag">zwölf</span><br><br>
+    <b>13–19:</b> [number] + <b>zehn</b> (but: <span class="tag teal">sechzehn</span> not "sechszehn", <span class="tag teal">siebzehn</span> not "siebenzehn")<br><br>
+    <b>21–99:</b> [unit] + <b>und</b> + [ten] → <span class="tag blue">einundzwanzig</span> = 21<br><br>
+    <b>Irregular tens:</b> <span class="tag teal">dreißig</span>(30) <span class="tag teal">sechzig</span>(60) <span class="tag teal">siebzig</span>(70)`));
+
+  // Number flashcard mini-game
+  const nums=shuffle([
+    {n:16,w:'sechzehn'},{n:17,w:'siebzehn'},{n:30,w:'dreißig'},{n:60,w:'sechzig'},
+    {n:70,w:'siebzig'},{n:21,w:'einundzwanzig'},{n:100,w:'(ein)hundert'},{n:1000,w:'eintausend'}
+  ]).slice(0,4);
+
+  nums.forEach(item=>{
+    const card=document.createElement('div'); card.className='q-card';
+    card.innerHTML=`<div class="q-type">✦ Number Flashcard — tap to reveal</div>
+      <div class="num-display">${item.n}</div>
+      <div class="num-display de" id="ans-${item.n}" style="display:none">${item.w}</div>
+      <button class="check-btn" id="rev-${item.n}" style="margin-top:12px;width:100%">REVEAL ANSWER</button>`;
+    document.getElementById('game-area').appendChild(card);
+    card.querySelector(`#rev-${item.n}`).onclick=function(){
+      card.querySelector(`#ans-${item.n}`).style.display='block';
+      this.style.display='none'; S.score+=2; updateHUD();
+    };
+  });
+
+  mcqSequence(shuffle(ZAHLEN_MCQ).slice(0,4), 0, ()=>{
+    fillSequence(shuffle(ZAHLEN_FILL).slice(0,3), 0, ()=>nextRound());
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// ROUND 3: SATZBAU
+// ═══════════════════════════════════════════════════════
+function renderSatzbau(){
+  GA().appendChild(makeIntro('§ SATZBAU','Sentence Structure','German has strict verb placement rules — master them here!'));
+  GA().appendChild(makeRule(`
+    <h4>📌 The German Verb Position Rule</h4>
+    <table>
+      <tr><th>Sentence type</th><th>Verb position</th><th>Example</th></tr>
+      <tr><td>Aussagesatz (Statement)</td><td>Position <b>2</b></td><td>Ich <b>komme</b> aus Berlin.</td></tr>
+      <tr><td>W-Frage (W-question)</td><td>Position <b>2</b></td><td>Woher <b>kommen</b> Sie?</td></tr>
+      <tr><td>Ja-Nein-Frage (Yes/No)</td><td>Position <b>1</b></td><td><b>Sprechen</b> Sie Englisch?</td></tr>
+    </table>
+    <br>💡 The verb is <b>always</b> in position 2 in statements — even if something else comes first:<br>
+    <span class="tag blue">In Frankreich</span> spricht man Französisch. ← verb still in position 2!`));
+  mcqSequence(shuffle(SATZBAU_MCQ), 0, ()=>nextRound());
+}
+
+// ═══════════════════════════════════════════════════════
+// ROUND 4: FAMILIE
+// ═══════════════════════════════════════════════════════
+function renderFamilie(){
+  GA().appendChild(makeIntro('§ FAMILIE','Familie Behrens','Learn family vocabulary and read about the Behrens family!'));
+
+  // Family tree visual
+  const tree=document.createElement('div');
+  tree.className='rule-card';
+  tree.innerHTML=`<h4>📌 Familie Behrens — Family Tree</h4>
+    <div style="text-align:center;margin-top:10px">
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+        <div class="fam-card"><div class="name">Hans</div><div class="role">Chemiker · verheiratet</div></div>
+        <div class="fam-card" style="border-color:var(--rust)"><div class="name">Susanne</div><div class="role">Managerin · verheiratet</div></div>
+      </div>
+      <div style="color:var(--muted);font-size:0.8rem;margin-bottom:8px">↓ Kinder ↓</div>
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:12px">
+        <div class="fam-card"><div class="name">Maximilian</div><div class="role">4 Jahre · Sohn</div></div>
+        <div class="fam-card"><div class="name">Marie</div><div class="role">8 Jahre · Tochter</div></div>
+      </div>
+      <div style="color:var(--muted);font-size:0.8rem;margin-bottom:8px">Geschwister von Hans:</div>
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
+        <div class="fam-card"><div class="name">Marta</div><div class="role">Schwester · geschieden</div></div>
+        <div class="fam-card"><div class="name">Martin</div><div class="role">Bruder · ledig · Student</div></div>
+      </div>
+    </div>
+    <br>
+    <b>Familienstand vocabulary:</b><br>
+    <span class="tag">verheiratet</span> married &nbsp; <span class="tag teal">ledig</span> single &nbsp; <span class="tag blue">geschieden</span> divorced`;
+  GA().appendChild(tree);
+
+  matchingGame(shuffle(FAMS).slice(0,6), ()=>{
+    mcqSequence(shuffle(FAM_MCQ), 0, ()=>nextRound());
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// ROUND 5: HOBBYS
+// ═══════════════════════════════════════════════════════
+function renderHobbys(){
+  GA().appendChild(makeIntro('§ HOBBYS','Personen und Hobbys','Learn hobby vocabulary and how to express likes with "gern"!'));
+  GA().appendChild(makeRule(`
+    <h4>📌 Expressing Likes with "gern"</h4>
+    <table>
+      <tr><th>Expression</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td>gern / gerne</td><td>like to</td><td>Ich spiele <b>gern</b> Tennis.</td></tr>
+      <tr><td>sehr gut</td><td>very well</td><td>Sie spielt <b>sehr gut</b> Gitarre.</td></tr>
+      <tr><td>nicht gern</td><td>don't like to</td><td>Wir spielen <b>nicht gern</b> Hockey.</td></tr>
+      <tr><td>lieber</td><td>prefer / rather</td><td>Wir spielen <b>lieber</b> Volleyball.</td></tr>
+    </table>
+    <br>🎵 Key hobbies:<br>
+    <span class="tag">Fußball spielen</span><span class="tag teal">Tennis spielen</span><span class="tag blue">Gitarre spielen</span>
+    <span class="tag">Kriminalromane lesen</span><span class="tag teal">im Chor singen</span><span class="tag blue">Musik hören</span>
+    <span class="tag">Sprachen lernen</span><span class="tag teal">Online-Texte schreiben</span>`));
+  mcqSequence(shuffle(HOBBY_MCQ), 0, ()=>nextRound());
+}
+
+// ═══════════════════════════════════════════════════════
+// ROUND 6: VERBEN II
+// ═══════════════════════════════════════════════════════
+function renderVerben2(){
+  GA().appendChild(makeIntro('§ VERBEN','Verb Conjugation II','Conjugate singen, spielen, lesen and more — watch for irregulars!'));
+  GA().appendChild(makeRule(`
+    <h4>📌 Conjugation: singen / spielen / lesen</h4>
+    <table>
+      <tr><th>Pronoun</th><th>singen</th><th>spielen</th><th>lesen</th></tr>
+      <tr><td>ich</td><td>sing<b style="color:var(--teal)">e</b></td><td>spiel<b style="color:var(--teal)">e</b></td><td>les<b style="color:var(--teal)">e</b></td></tr>
+      <tr><td>du</td><td>sing<b style="color:var(--teal)">st</b></td><td>spiel<b style="color:var(--teal)">st</b></td><td><b style="color:var(--rust)">liest</b> ⚠️</td></tr>
+      <tr><td>er/sie/es</td><td>sing<b style="color:var(--teal)">t</b></td><td>spiel<b style="color:var(--teal)">t</b></td><td><b style="color:var(--rust)">liest</b> ⚠️</td></tr>
+      <tr><td>wir</td><td>sing<b style="color:var(--teal)">en</b></td><td>spiel<b style="color:var(--teal)">en</b></td><td>les<b style="color:var(--teal)">en</b></td></tr>
+      <tr><td>ihr</td><td>sing<b style="color:var(--teal)">t</b></td><td>spiel<b style="color:var(--teal)">t</b></td><td>les<b style="color:var(--teal)">t</b></td></tr>
+      <tr><td>sie/Sie</td><td>sing<b style="color:var(--teal)">en</b></td><td>spiel<b style="color:var(--teal)">en</b></td><td>les<b style="color:var(--teal)">en</b></td></tr>
+    </table>
+    <br>⚠️ <b>lesen</b>: e→ie change for du/er/sie → <span class="tag">liest</span> (not "lest"!)<br>
+    Also remember: <b>sprechen</b> → sprichst/spricht (e→i)`));
+  fillSequence(shuffle(VERB2_FILL).slice(0,6), 0, ()=>nextRound());
+}
+
+// ═══════════════════════════════════════════════════════
+// CONGRATS
+// ═══════════════════════════════════════════════════════
+function showCongrats(){
+  const area=GA(); area.innerHTML='';
+  const div=document.createElement('div'); div.className='congrats show';
+  const grade = S.score>=220?'Ausgezeichnet! 🌟': S.score>=140?'Sehr gut! 👍':'Gut gemacht! 💪';
+  div.innerHTML=`
+    <div class="medal">🏅</div>
+    <h2>${grade}</h2>
+    <p>You've completed all 6 rounds of Kapitel 1 · Teil 2</p>
+    <div class="final-score">
+      <div class="big">${S.score}</div>
+      <small>TOTAL POINTS</small>
+    </div>
+    <br>
+    <p style="color:var(--muted);margin-bottom:24px">Lives remaining: ${'❤️'.repeat(S.lives)}${'🖤'.repeat(3-S.lives)}</p>
+    <button class="restart-btn" onclick="restartGame()">↺ Play Again</button>
+    <br><br>
+    <p style="color:var(--muted);font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:2px;margin-top:16px">BEREIT FÜR KAPITEL 2?</p>`;
+  area.appendChild(div);
+  document.getElementById('prog-fill').style.width='100%';
+  document.getElementById('prog-label').textContent='✦ ALL ROUNDS COMPLETE ✦';
+}
+
+function restartGame(){
+  S={round:0,score:0,lives:3,streak:0,done:[]};
+  updateHUD(); renderRound();
+}
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+updateHUD();
+renderRound();
+</script>
+</body>
+</html>
